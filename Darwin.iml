@@ -7,5 +7,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../Documentation/Java/Bukkit/spigot-110.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../Documentation/Java/Bukkit/spigot-110.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
