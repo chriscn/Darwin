@@ -22,7 +22,6 @@ public class DarwinMain extends JavaPlugin implements Listener {
 
     }
 
-
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
         Player player = event.getPlayer();
