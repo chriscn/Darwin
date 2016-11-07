@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
 
-public class InvisiblePlayer implements Listener {
+public class VanishPlayer implements Listener {
 
     public static ArrayList<Player> vanished = new ArrayList<Player>();
 
