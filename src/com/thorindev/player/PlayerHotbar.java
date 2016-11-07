@@ -31,7 +31,7 @@ public class PlayerHotbar {
         PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
         craftPlayer.getHandle().playerConnection.sendPacket(ppoc);
     }
-    
+
     public ItemStack getItemInMainHand(Player player) {
         ItemStack item = new ItemStack(player.getInventory().getItemInMainHand());
         return item;
