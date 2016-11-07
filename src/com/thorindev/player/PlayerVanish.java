@@ -14,21 +14,17 @@ public class PlayerVanish implements Listener {
     public static ArrayList<Player> vanished = new ArrayList<Player>();
 
     public void VanishPlayer(Player player) {
-        if(Bukkit.getPlayerExact(player.toString()) != null) {
-            for (Player toHide : Bukkit.getServer().getOnlinePlayers()) {
-                toHide.hidePlayer(player);
-            }
-            vanished.add(player);
+        for (Player toHide : Bukkit.getServer().getOnlinePlayers()) {
+            toHide.hidePlayer(player);
         }
+        vanished.add(player);
     }
 
     public void unVanishPlayer(Player player) {
-        if(Bukkit.getPlayerExact(player.toString()) != null) {
-            for (Player toShow : Bukkit.getServer().getOnlinePlayers()) {
-                toShow.showPlayer(player);
-            }
-            vanished.remove(player);
+        for (Player toShow : Bukkit.getServer().getOnlinePlayers()) {
+            toShow.showPlayer(player);
         }
+        vanished.remove(player);
     }
 
     @EventHandler
