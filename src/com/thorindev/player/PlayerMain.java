@@ -2,6 +2,8 @@ package com.thorindev.player;
 
 public class PlayerMain {
 
-    public VanishPlayer vanishPlayer = new VanishPlayer();
+    public PlayerVanish vanishPlayer = new PlayerVanish();
+    public PlayerTaskbar playerTaskbar = new PlayerTaskbar();
+
 
 }
