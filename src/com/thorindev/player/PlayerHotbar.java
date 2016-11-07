@@ -25,6 +25,7 @@ public class PlayerHotbar {
     }
 
     public static void sendActionBar(Player player, String message){
+        message = message.toString();
         message = message.replaceAll("&", "§");
         CraftPlayer craftPlayer = (CraftPlayer) player;
         IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message + "\"}");
@@ -41,5 +42,4 @@ public class PlayerHotbar {
         ItemStack item = new ItemStack(player.getInventory().getItemInOffHand());
         return item;
     }
-
 }
