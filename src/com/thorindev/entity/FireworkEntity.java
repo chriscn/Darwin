@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.FireworkMeta;
 
 import java.util.Random;
 
-public class FireworkAPI {
+public class FireworkEntity {
 
     Random random = new Random();
 

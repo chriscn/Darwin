@@ -1,6 +1,6 @@
 package com.thorindev;
 
-import com.thorindev.entity.FireworkAPI;
+import com.thorindev.entity.FireworkEntity;
 import com.thorindev.item.GiveItem;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Achievement;
@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class DarwinMain extends JavaPlugin implements Listener {
 
-    FireworkAPI fw = new FireworkAPI();
+    FireworkEntity fw = new FireworkEntity();
     GiveItem gi = new GiveItem();
 
     @Override
