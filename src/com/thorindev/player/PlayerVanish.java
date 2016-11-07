@@ -9,22 +9,26 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
 
-public class VanishPlayer implements Listener {
+public class PlayerVanish implements Listener {
 
     public static ArrayList<Player> vanished = new ArrayList<Player>();
 
     public void VanishPlayer(Player player) {
-        for(Player toHide : Bukkit.getServer().getOnlinePlayers()) {
-            toHide.hidePlayer(player);
+        if(Bukkit.getPlayerExact(player.toString()) != null) {
+            for (Player toHide : Bukkit.getServer().getOnlinePlayers()) {
+                toHide.hidePlayer(player);
+            }
+            vanished.add(player);
         }
-        vanished.add(player);
     }
 
     public void unVanishPlayer(Player player) {
-        for(Player toShow : Bukkit.getServer().getOnlinePlayers()) {
-            toShow.showPlayer(player);
+        if(Bukkit.getPlayerExact(player.toString()) != null) {
+            for (Player toShow : Bukkit.getServer().getOnlinePlayers()) {
+                toShow.showPlayer(player);
+            }
+            vanished.remove(player);
         }
-        vanished.remove(player);
     }
 
     @EventHandler
