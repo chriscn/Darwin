@@ -15,6 +15,11 @@ public class EnchantItem {
         }
     }
 
+    public ItemStack enchantedItem(Material material, Enchantment enchantment, int level) {
+        ItemStack enchantedItem = new ItemStack(material);
+        enchantedItem.addEnchantment(enchantment, level);
+        return enchantedItem;
+    }
 
 
 }
