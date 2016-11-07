@@ -1,7 +1,10 @@
 package com.thorindev.entity;
 
 import com.thorindev.util.UtilMain;
-import org.bukkit.*;
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
@@ -12,7 +15,7 @@ import java.util.Random;
 public class FireworkEntity {
 
     Random random = new Random();
-    
+
     UtilMain utilMain = new UtilMain();
 
     public void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
