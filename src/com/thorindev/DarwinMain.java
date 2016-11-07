@@ -1,7 +1,7 @@
 package com.thorindev;
 
 import com.thorindev.entity.EntityMain;
-import com.thorindev.item.GiveItem;
+import com.thorindev.item.ItemMain;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Achievement;
 import org.bukkit.Material;
@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class DarwinMain extends JavaPlugin implements Listener {
 
     EntityMain entityMain = new EntityMain();
-    GiveItem gi = new GiveItem();
+    ItemMain itemMain = new ItemMain();
 
     @Override
     public void onEnable() {
@@ -39,9 +39,10 @@ public class DarwinMain extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerGetAchievement(PlayerAchievementAwardedEvent event) {
         Player player = event.getPlayer();
+        Achievement eventAchievement = event.getAchievement();
         if(event.getAchievement() == Achievement.OPEN_INVENTORY) {
             player.sendMessage(ChatColor.GREEN + "Well done for opening your inventory!");
-            gi.giveItem(player, Material.DIAMOND, 1);
+            itemMain.giveItem.giveItem(player, Material.DIAMOND, 1);
         }
     }
 }
