@@ -37,5 +37,9 @@ public class PlayerHotbar {
         return item;
     }
 
+    public ItemStack getItemInOffHand(Player player) {
+        ItemStack item = new ItemStack(player.getInventory().getItemInOffHand());
+        return item;
+    }
 
 }
