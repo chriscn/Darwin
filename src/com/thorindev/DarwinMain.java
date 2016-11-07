@@ -1,6 +1,6 @@
 package com.thorindev;
 
-import com.thorindev.entity.FireworkEntity;
+import com.thorindev.entity.EntityMain;
 import com.thorindev.item.GiveItem;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Achievement;
@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class DarwinMain extends JavaPlugin implements Listener {
 
-    FireworkEntity fw = new FireworkEntity();
+    EntityMain entityMain = new EntityMain();
     GiveItem gi = new GiveItem();
 
     @Override
@@ -32,7 +32,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
         Player player = event.getPlayer();
         if(!player.hasPlayedBefore()) {
             player.sendMessage(ChatColor.GREEN + "Hello there! I see that you haven't played before, have a firework");
-            fw.spawnRandomFirework(player);
+            entityMain.fireworkEntity.spawnRandomFirework(player);
         }
     }
 
