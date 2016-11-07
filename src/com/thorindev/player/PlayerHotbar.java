@@ -4,6 +4,7 @@ import net.minecraft.server.v1_10_R1.IChatBaseComponent;
 import net.minecraft.server.v1_10_R1.PacketPlayOutChat;
 import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class PlayerHotbar {
 
@@ -30,5 +31,11 @@ public class PlayerHotbar {
         PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
         craftPlayer.getHandle().playerConnection.sendPacket(ppoc);
     }
+    
+    public ItemStack getItemInMainHand(Player player) {
+        ItemStack item = new ItemStack(player.getInventory().getItemInMainHand());
+        return item;
+    }
+
 
 }
