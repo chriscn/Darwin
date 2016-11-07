@@ -12,4 +12,12 @@ public class GiveItem {
         Inventory playerInventory = player.getInventory();
         playerInventory.addItem(toGive);
     }
+
+    public void removeItem(Player player, Material item, int amount) {
+        ItemStack toRemove = new ItemStack(item, amount);
+        Inventory playerInventory = player.getInventory();
+        if(playerInventory.contains(toRemove)) {
+           playerInventory.removeItem(toRemove);
+        }
+    }
 }
