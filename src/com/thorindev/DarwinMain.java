@@ -2,9 +2,12 @@ package com.thorindev;
 
 import com.thorindev.entity.EntityMain;
 import com.thorindev.item.ItemMain;
+import com.thorindev.player.PlayerMain;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Achievement;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +19,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
 
     EntityMain entityMain = new EntityMain();
     ItemMain itemMain = new ItemMain();
+    PlayerMain playerMain = new PlayerMain();
 
     @Override
     public void onEnable() {
@@ -27,10 +31,20 @@ public class DarwinMain extends JavaPlugin implements Listener {
 
     }
 
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        Player player = (Player) sender;
+        if(cmd.getName().equalsIgnoreCase("test")) {
+            playerMain.playerHotbar.sendActionBar(player, "&cHello World");
+            return true;
+        }
+        return false;
+    }
+
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        if(!player.hasPlayedBefore()) {
+        if(player.hasPlayedBefore()) {
             player.sendMessage(ChatColor.GREEN + "Hello there! I see that you haven't played before, have a firework");
             entityMain.fireworkEntity.spawnRandomFirework(player);
         }

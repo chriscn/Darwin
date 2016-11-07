@@ -3,3 +3,7 @@ main: com.thorindev.DarwinMain
 author: ThorinDev
 authors: [Thorin, ThorinDev]
 version: 1.0.0
+commands:
+  test:
+    usage:
+      /test
