@@ -25,10 +25,10 @@ public class PlayerHotbar {
 
     public static void sendActionBar(Player player, String message){
         message = message.replaceAll("&", "§");
-        CraftPlayer toSend = (CraftPlayer) player;
+        CraftPlayer craftPlayer = (CraftPlayer) player;
         IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message + "\"}");
         PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
-        toSend.getHandle().playerConnection.sendPacket(ppoc);
+        craftPlayer.getHandle().playerConnection.sendPacket(ppoc);
     }
 
 }
