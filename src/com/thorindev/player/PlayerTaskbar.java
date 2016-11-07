@@ -5,7 +5,7 @@ import net.minecraft.server.v1_10_R1.PacketPlayOutChat;
 import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-public class PlayerTaskbar {
+public class PlayerHotbar {
 
     public void healPlayer(Player player) {
         player.setHealth(20);
@@ -25,7 +25,6 @@ public class PlayerTaskbar {
 
     public static void sendActionBar(Player player, String message){
         CraftPlayer toSend = (CraftPlayer) player;
-        if (toSend.getHandle().playerConnection.networkManager.getVersion() != 47) return; // Don't run if player is not on 1.8
         IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message + "\"}");
         PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
         ((CraftPlayer) toSend).getHandle().playerConnection.sendPacket(ppoc);
