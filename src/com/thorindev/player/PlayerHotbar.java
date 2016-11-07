@@ -28,7 +28,7 @@ public class PlayerHotbar {
         CraftPlayer toSend = (CraftPlayer) player;
         IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message + "\"}");
         PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
-        ((CraftPlayer) toSend).getHandle().playerConnection.sendPacket(ppoc);
+        toSend.getHandle().playerConnection.sendPacket(ppoc);
     }
 
 }
