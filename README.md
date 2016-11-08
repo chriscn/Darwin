@@ -9,4 +9,4 @@ There are just a couple rules that I follow mainly relating to the naming of var
   
 ##The Way This Works
 The API is split up into different sections, each containing sub classes with all the methods you may need,  
-Instead of accessing the classes individually (be my guest) you access the main class which then directs you to the seperate ones.
+Instead of accessing the classes individually (be my guest) you access the main class which then directs you to the separate ones.
