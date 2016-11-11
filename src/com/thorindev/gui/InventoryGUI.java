@@ -80,8 +80,9 @@ public class InventoryGUI implements Listener {
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
-        if (viewing.contains(event.getPlayer().getName()))
+        if (viewing.contains(event.getPlayer().getName())) {
             viewing.remove(event.getPlayer().getName());
+        }
     }
 
     public InventoryGUI addButton(Row row, int position, ItemStack item, String name, String... lore) {
