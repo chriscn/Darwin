@@ -7,3 +7,6 @@ commands:
   test:
     usage:
       /test
+  gui:
+    usage:
+      /gui

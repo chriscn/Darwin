@@ -1,6 +1,7 @@
 package com.thorindev;
 
 import com.thorindev.entity.EntityMain;
+import com.thorindev.gui.InventoryGUI;
 import com.thorindev.item.ItemMain;
 import com.thorindev.player.PlayerMain;
 import net.md_5.bungee.api.ChatColor;
@@ -13,6 +14,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAchievementAwardedEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DarwinMain extends JavaPlugin implements Listener {
@@ -37,6 +39,28 @@ public class DarwinMain extends JavaPlugin implements Listener {
         if(cmd.getName().equalsIgnoreCase("test")) {
             playerMain.playerHotbar.sendActionBar(player, "&cHello World");
             return true;
+        } else if(cmd.getName().equalsIgnoreCase("gui")) {
+            InventoryGUI gui = new InventoryGUI("IconMenu", 3, new InventoryGUI.onClick() {
+                @Override
+                public boolean click(Player p, InventoryGUI menu, InventoryGUI.Row row, int slot, ItemStack item) {
+                    if(row.getRow() == 1) {
+                        if(row.getRowItem(0).getType() == Material.STONE) {
+                            row.getRowItem(0).setType(Material.ANVIL);
+                        }
+                    }
+                    return true;
+                }
+            });
+            gui.addButton(gui.getRow(1), 0, new ItemStack(Material.STONE), "Stone Button ;)");
+            gui.addButton(gui.getRow(1), 1, new ItemStack(Material.WOOD), "Wood Button ;)");
+            gui.addButton(gui.getRow(1), 2, new ItemStack(Material.DIAMOND), "Diamond Button ;)");
+            gui.addButton(gui.getRow(1), 3, new ItemStack(Material.GOLD_BLOCK), "Gold Button ;)");
+            gui.addButton(gui.getRow(1), 4, new ItemStack(Material.IRON_BLOCK), "Iron Button ;)");
+            gui.addButton(gui.getRow(1), 5, new ItemStack(Material.OBSIDIAN), "Obby Button ;)");
+            gui.addButton(gui.getRow(1), 6, new ItemStack(Material.ANVIL), "Anvil Button ;)");
+            gui.addButton(gui.getRow(1), 7, new ItemStack(Material.STONE_BUTTON), "Button Button ;)");
+            gui.addButton(gui.getRow(1), 8, new ItemStack(Material.PORTAL), "Portal Button ;)");
+            gui.open(player.getPlayer());
         }
         return false;
     }
