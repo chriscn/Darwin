@@ -49,22 +49,25 @@ public class InventoryGUI implements Listener {
 
     private Inventory getInventory(Player player) {
         Inventory inv = Bukkit.createInventory(player, size, name);
-        for (int i = 0; i < items.length; i++)
+        for (int i = 0; i < items.length; i++) {
             if (items[i] != null)
                 inv.setItem(i, items[i]);
+        }
         return inv;
     }
 
     public InventoryGUI close(Player player) {
-        if (player.getOpenInventory().getTitle().equals(name))
+        if (player.getOpenInventory().getTitle().equals(name)) {
             player.closeInventory();
+        }
         return this;
     }
 
     public List<Player> getViewers() {
         List<Player> viewers = new ArrayList<Player>();
-        for (String s : viewing)
+        for (String s : viewing) {
             viewers.add(Bukkit.getPlayer(s));
+        }
         return viewers;
     }
 
