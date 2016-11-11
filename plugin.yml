@@ -10,3 +10,4 @@ commands:
   gui:
     usage:
       /gui
+  hotbar:
