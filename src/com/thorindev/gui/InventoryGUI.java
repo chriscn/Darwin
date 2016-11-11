@@ -1,5 +1,6 @@
 package com.thorindev.gui;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -86,6 +87,7 @@ public class InventoryGUI implements Listener {
     }
 
     public InventoryGUI addButton(Row row, int position, ItemStack item, String name, String... lore) {
+        name = ChatColor.translateAlternateColorCodes('&', name);
         items[row.getRow() * 9 + position] = getItem(item, name, lore);
         return this;
     }

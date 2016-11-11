@@ -36,10 +36,19 @@ public class DarwinMain extends JavaPlugin implements Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player player = (Player) sender;
-        if(cmd.getName().equalsIgnoreCase("test")) {
-            playerMain.playerHotbar.sendActionBar(player, "&cHello World");
-            return true;
-        } else if(cmd.getName().equalsIgnoreCase("gui")) {
+        switch(cmd.getName().toLowerCase()) {
+            case "test":
+                player.sendMessage(ChatColor.GREEN + "Your test was successful!");
+                break;
+            case "gui":
+                doTheGUIStuff();
+                break;
+            default:
+                player.sendMessage(ChatColor.RED + "Something bad happened, your command was not found, have a good day!");
+                break;
+        }
+        return true;
+        /*} else if(cmd.getName().equalsIgnoreCase("gui")) {
             InventoryGUI gui = new InventoryGUI("IconMenu", 3, new InventoryGUI.onClick() {
                 @Override
                 public boolean click(Player p, InventoryGUI menu, InventoryGUI.Row row, int slot, ItemStack item) {
@@ -61,8 +70,18 @@ public class DarwinMain extends JavaPlugin implements Listener {
             gui.addButton(gui.getRow(1), 7, new ItemStack(Material.STONE_BUTTON), "Button Button ;)");
             gui.addButton(gui.getRow(1), 8, new ItemStack(Material.PORTAL), "Portal Button ;)");
             gui.open(player.getPlayer());
-        }
-        return false;
+        } */
+    }
+
+    private void doTheGUIStuff() {
+        InventoryGUI gui = new InventoryGUI("Options", 1, new InventoryGUI.onClick() {
+            @Override
+            public boolean click(Player clicker, InventoryGUI menu, InventoryGUI.Row row, int slot, ItemStack item) {
+                return false;
+            }
+        });
+
+        gui.addButton(gui.getRow(1), 0, new ItemStack(Material.ANVIL));
     }
 
     @EventHandler
