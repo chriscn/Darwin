@@ -40,4 +40,5 @@ public class PlayerVanish implements Listener {
             vanished.remove(event.getPlayer());
         }
     }
+
 }
