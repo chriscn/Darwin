@@ -11,3 +11,4 @@ commands:
     usage:
       /gui
   hotbar:
+  fw:

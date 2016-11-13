@@ -9,7 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+<<<<<<< HEAD
 import org.bukkit.event.player.PlayerJoinEvent;
+=======
+import org.bukkit.event.player.PlayerAchievementAwardedEvent;
+>>>>>>> origin/master
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DarwinMain extends JavaPlugin implements Listener {
@@ -20,7 +24,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-
+        getLogger().info("DarwinMain has been enabled");
     }
 
     @Override
@@ -38,6 +42,9 @@ public class DarwinMain extends JavaPlugin implements Listener {
             case "hotbar":
                 playerMain.playerHotbar.sendActionBar(player.getPlayer(), ChatColor.RED + "Hotbar messages are cool");
                 break;
+            case "fw":
+                entityMain.fireworkEntity.spawnRandomFirework(player);
+                break;
             default:
                 player.sendMessage(ChatColor.RED + "Something bad happened, your command was not found, have a good day!");
                 break;
@@ -45,9 +52,21 @@ public class DarwinMain extends JavaPlugin implements Listener {
         return true;
     }
 
+<<<<<<< HEAD
    @EventHandler
    public void onPlayerJoinEvent(PlayerJoinEvent event) {
        Player player = event.getPlayer();
        playerMain.playerHotbar.sendActionBar(player, "Hello World");
    }
+=======
+    @EventHandler
+    public void onPlayerGetAchievement(PlayerAchievementAwardedEvent event) {
+        Player player = event.getPlayer();
+        Achievement eventAchievement = event.getAchievement();
+        if(event.getAchievement() == Achievement.OPEN_INVENTORY) {
+            player.sendMessage(ChatColor.GREEN + "Well done for opening your inventory!");
+            itemMain.giveItem.giveItem(player, Material.DIAMOND, 1);
+        }
+    }
+>>>>>>> origin/master
 }
