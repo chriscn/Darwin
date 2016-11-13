@@ -9,11 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-<<<<<<< HEAD
 import org.bukkit.event.player.PlayerJoinEvent;
-=======
-import org.bukkit.event.player.PlayerAchievementAwardedEvent;
->>>>>>> origin/master
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DarwinMain extends JavaPlugin implements Listener {
