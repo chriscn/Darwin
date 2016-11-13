@@ -52,21 +52,9 @@ public class DarwinMain extends JavaPlugin implements Listener {
         return true;
     }
 
-<<<<<<< HEAD
    @EventHandler
    public void onPlayerJoinEvent(PlayerJoinEvent event) {
        Player player = event.getPlayer();
        playerMain.playerHotbar.sendActionBar(player, "Hello World");
    }
-=======
-    @EventHandler
-    public void onPlayerGetAchievement(PlayerAchievementAwardedEvent event) {
-        Player player = event.getPlayer();
-        Achievement eventAchievement = event.getAchievement();
-        if(event.getAchievement() == Achievement.OPEN_INVENTORY) {
-            player.sendMessage(ChatColor.GREEN + "Well done for opening your inventory!");
-            itemMain.giveItem.giveItem(player, Material.DIAMOND, 1);
-        }
-    }
->>>>>>> origin/master
 }
