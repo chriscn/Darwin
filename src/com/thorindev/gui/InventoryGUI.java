@@ -36,7 +36,7 @@ public class InventoryGUI implements Listener {
 
     @EventHandler
     public void onPluginDisable(PluginDisableEvent event) {
-        for (Player player : this.getViewers()) {
+        for(Player player : this.getViewers()) {
             close(player);
         }
     }
@@ -49,15 +49,15 @@ public class InventoryGUI implements Listener {
 
     private Inventory getInventory(Player player) {
         Inventory inv = Bukkit.createInventory(player, size, name);
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null)
+        for(int i = 0; i < items.length; i++) {
+            if(items[i] != null)
                 inv.setItem(i, items[i]);
         }
         return inv;
     }
 
     public InventoryGUI close(Player player) {
-        if (player.getOpenInventory().getTitle().equals(name)) {
+        if(player.getOpenInventory().getTitle().equals(name)) {
             player.closeInventory();
         }
         return this;
@@ -65,7 +65,7 @@ public class InventoryGUI implements Listener {
 
     public List<Player> getViewers() {
         List<Player> viewers = new ArrayList<Player>();
-        for (String s : viewing) {
+        for(String s : viewing) {
             viewers.add(Bukkit.getPlayer(s));
         }
         return viewers;
@@ -73,18 +73,18 @@ public class InventoryGUI implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if (viewing.contains(event.getWhoClicked().getName())) {
+        if(viewing.contains(event.getWhoClicked().getName())) {
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
             Row row = getRowFromSlot(event.getSlot());
-            if (!click.click(player, this, row, event.getSlot() - row.getRow() * 9, event.getCurrentItem()))
+            if(!click.click(player, this, row, event.getSlot() - row.getRow() * 9, event.getCurrentItem()))
                 close(player);
         }
     }
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
-        if (viewing.contains(event.getPlayer().getName())) {
+        if(viewing.contains(event.getPlayer().getName())) {
             viewing.remove(event.getPlayer().getName());
         }
     }
@@ -114,7 +114,7 @@ public class InventoryGUI implements Listener {
         public Row(int row, ItemStack[] items) {
             this.row = row;
             int j = 0;
-            for (int i = (row * 9); i < (row * 9) + 9; i++) {
+            for(int i = (row * 9); i < (row * 9) + 9; i++) {
                 rowItems[j] = items[i];
                 j++;
             }
