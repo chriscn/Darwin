@@ -41,6 +41,9 @@ public class DarwinMain extends JavaPlugin implements Listener {
             case "hotbar":
                 playerMain.playerHotbar.sendActionBar(player.getPlayer(), ChatColor.RED + "Hotbar messages are cool");
                 break;
+            case "fw":
+                entityMain.fireworkEntity.spawnRandomFirework(player);
+                break;
             default:
                 player.sendMessage(ChatColor.RED + "Something bad happened, your command was not found, have a good day!");
                 break;
