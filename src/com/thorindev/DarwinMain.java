@@ -1,8 +1,7 @@
 package com.thorindev;
 
-import com.thorindev.entity.EntityMain;
-import com.thorindev.item.ItemMain;
-import com.thorindev.player.PlayerMain;
+import com.thorindev.entity.FireworkEntity;
+import com.thorindev.player.PlayerHotbar;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -14,9 +13,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class DarwinMain extends JavaPlugin implements Listener {
 
-    EntityMain entityMain = new EntityMain();
-    ItemMain itemMain = new ItemMain();
-    PlayerMain playerMain = new PlayerMain();
+    FireworkEntity fireworkEntity = new FireworkEntity();
+    PlayerHotbar playerHotbar = new PlayerHotbar();
 
     @Override
     public void onEnable() {
@@ -36,10 +34,10 @@ public class DarwinMain extends JavaPlugin implements Listener {
                 player.sendMessage(ChatColor.GREEN + "Your test was successful!");
                 break;
             case "hotbar":
-                playerMain.playerHotbar.sendActionBar(player.getPlayer(), ChatColor.RED + "Hotbar messages are cool");
+                playerHotbar.sendActionBar(player.getPlayer(), ChatColor.RED + "Hotbar messages are cool");
                 break;
             case "fw":
-                entityMain.fireworkEntity.spawnRandomFirework(player);
+                fireworkEntity.spawnRandomFirework(player);
                 break;
             default:
                 player.sendMessage(ChatColor.RED + "Something bad happened, your command was not found, have a good day!");
@@ -51,6 +49,6 @@ public class DarwinMain extends JavaPlugin implements Listener {
    @EventHandler
    public void onPlayerJoinEvent(PlayerJoinEvent event) {
        Player player = event.getPlayer();
-       playerMain.playerHotbar.sendActionBar(player, "Hello World");
+       playerHotbar.sendActionBar(player, "Hello World");
    }
 }

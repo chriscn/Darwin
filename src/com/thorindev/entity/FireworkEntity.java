@@ -1,6 +1,6 @@
 package com.thorindev.entity;
 
-import com.thorindev.util.UtilMain;
+import com.thorindev.util.UtilArrays;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
@@ -16,7 +16,7 @@ public class FireworkEntity {
 
     Random random = new Random();
 
-    UtilMain utilMain = new UtilMain();
+    UtilArrays utilArrays = new UtilArrays();
 
     public void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
         Firework fw = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
@@ -38,10 +38,10 @@ public class FireworkEntity {
         Firework fw = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
-        FireworkEffect.Type t1 = utilMain.utilArrays.getType();
-        Color c1 = utilMain.utilArrays.getColor();
-        Color c2 = utilMain.utilArrays.getColor();
-        int p1 = utilMain.utilArrays.getPower();
+        FireworkEffect.Type t1 = utilArrays.getType();
+        Color c1 = utilArrays.getColor();
+        Color c2 = utilArrays.getColor();
+        int p1 = utilArrays.getPower();
 
         FireworkEffect effect = FireworkEffect.builder()
                 .flicker(random.nextBoolean())
@@ -78,10 +78,10 @@ public class FireworkEntity {
         Firework fw = (Firework) w.spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
-        FireworkEffect.Type t1 = utilMain.utilArrays.getType();
-        Color c1 = utilMain.utilArrays.getColor();
-        Color c2 = utilMain.utilArrays.getColor();
-        int p1 = utilMain.utilArrays.getPower();
+        FireworkEffect.Type t1 = utilArrays.getType();
+        Color c1 = utilArrays.getColor();
+        Color c2 = utilArrays.getColor();
+        int p1 = utilArrays.getPower();
 
         FireworkEffect effect = FireworkEffect.builder()
                 .flicker(random.nextBoolean())
