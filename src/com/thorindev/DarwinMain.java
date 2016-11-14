@@ -40,7 +40,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
                 fireworkEntity.spawnRandomFirework(player);
                 break;
             default:
-                player.sendMessage(ChatColor.RED + "Something bad happened, your command was not found, have a good day!");
+                player.sendMessage(ChatColor.RED + "This a message letting you know that I have no idea what happened.");
                 break;
         }
         return true;
