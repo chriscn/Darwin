@@ -1,7 +1,7 @@
 package com.thorindev;
 
-import com.thorindev.entity.FireworkEntity;
-import com.thorindev.player.PlayerHotbar;
+import com.thorindev.entity.FireworkSpawner;
+import com.thorindev.player.Hotbar;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,8 +13,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class DarwinMain extends JavaPlugin implements Listener {
 
-    FireworkEntity fireworkEntity = new FireworkEntity();
-    PlayerHotbar playerHotbar = new PlayerHotbar();
+    FireworkSpawner fireworkEntity = new FireworkSpawner();
+    Hotbar hotbar = new Hotbar();
 
     @Override
     public void onEnable() {
@@ -34,7 +34,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
                 player.sendMessage(ChatColor.GREEN + "Your test was successful!");
                 break;
             case "hotbar":
-                playerHotbar.sendActionBar(player.getPlayer(), ChatColor.RED + "Hotbar messages are cool");
+                hotbar.sendActionBar(player.getPlayer(), ChatColor.RED + "Hotbar messages are cool");
                 break;
             case "fw":
                 fireworkEntity.spawnRandomFirework(player);
@@ -49,6 +49,6 @@ public class DarwinMain extends JavaPlugin implements Listener {
    @EventHandler
    public void onPlayerJoinEvent(PlayerJoinEvent event) {
        Player player = event.getPlayer();
-       playerHotbar.sendActionBar(player, "Hello World");
+       hotbar.sendActionBar(player, "Hello World");
    }
 }

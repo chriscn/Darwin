@@ -5,7 +5,7 @@ import org.bukkit.FireworkEffect;
 
 import java.util.Random;
 
-public class UtilArrays {
+public class DarwinArrays {
 
     Random random = new Random();
 

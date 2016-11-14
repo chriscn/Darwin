@@ -5,7 +5,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class EnchantItem {
+public class Enchant {
 
     public void enchantItemInHand(Player player, Enchantment enchantment, int level) {
         ItemStack item = player.getInventory().getItemInMainHand();
