@@ -24,7 +24,7 @@ public class Hotbar {
         player.setFoodLevel(0);
     }
 
-    public static static void sendActionBar(Player player, String message){
+    public static void sendActionBar(Player player, String message){
         message = message.toString();
         message = message.replaceAll("&", "§");
         CraftPlayer craftPlayer = (CraftPlayer) player;
