@@ -11,6 +11,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import static com.thorindev.player.Hotbar.sendActionBar;
+
 public class DarwinMain extends JavaPlugin implements Listener {
 
     FireworkSpawner fireworkEntity = new FireworkSpawner();
@@ -34,10 +36,10 @@ public class DarwinMain extends JavaPlugin implements Listener {
                 player.sendMessage(ChatColor.GREEN + "Your test was successful!");
                 break;
             case "hotbar":
-                hotbar.sendActionBar(player.getPlayer(), ChatColor.RED + "Hotbar messages are cool");
+                Hotbar.sendActionBar(player.getPlayer(), ChatColor.RED + "Hotbar messages are cool");
                 break;
             case "fw":
-                fireworkEntity.spawnRandomFirework(player);
+                FireworkSpawner.spawnRandomFirework(player);
                 break;
             default:
                 player.sendMessage(ChatColor.RED + "This a message letting you know that I have no idea what happened.");
@@ -47,8 +49,8 @@ public class DarwinMain extends JavaPlugin implements Listener {
     }
 
    @EventHandler
-   public void onPlayerJoinEvent(PlayerJoinEvent event) {
+   public static void onPlayerJoinEvent(PlayerJoinEvent event) {
        Player player = event.getPlayer();
-       hotbar.sendActionBar(player, "Hello World");
+       sendActionBar(player, "Hello World");
    }
 }

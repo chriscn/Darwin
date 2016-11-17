@@ -26,7 +26,7 @@ public class InventoryGUI implements Listener {
 
     private ItemStack[] items;
 
-    public InventoryGUI(String name, int size, onClick click) {
+    public static InventoryGUI(String name, int size, onClick click) {
         this.name = name;
         this.size = size * 9;
         items = new ItemStack[this.size];
@@ -35,13 +35,13 @@ public class InventoryGUI implements Listener {
     }
 
     @EventHandler
-    public void onPluginDisable(PluginDisableEvent event) {
+    public static void onPluginDisable(PluginDisableEvent event) {
         for(Player player : this.getViewers()) {
             close(player);
         }
     }
 
-    public InventoryGUI open(Player player) {
+    public static InventoryGUI open(Player player) {
         player.openInventory(getInventory(player));
         viewing.add(player.getName());
         return this;
@@ -56,14 +56,14 @@ public class InventoryGUI implements Listener {
         return inv;
     }
 
-    public InventoryGUI close(Player player) {
+    public static InventoryGUI close(Player player) {
         if(player.getOpenInventory().getTitle().equals(name)) {
             player.closeInventory();
         }
         return this;
     }
 
-    public List<Player> getViewers() {
+    public static List<Player> getViewers() {
         List<Player> viewers = new ArrayList<Player>();
         for(String s : viewing) {
             viewers.add(Bukkit.getPlayer(s));
@@ -72,7 +72,7 @@ public class InventoryGUI implements Listener {
     }
 
     @EventHandler
-    public void onInventoryClick(InventoryClickEvent event) {
+    public static void onInventoryClick(InventoryClickEvent event) {
         if(viewing.contains(event.getWhoClicked().getName())) {
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
@@ -83,35 +83,35 @@ public class InventoryGUI implements Listener {
     }
 
     @EventHandler
-    public void onInventoryClose(InventoryCloseEvent event) {
+    public static void onInventoryClose(InventoryCloseEvent event) {
         if(viewing.contains(event.getPlayer().getName())) {
             viewing.remove(event.getPlayer().getName());
         }
     }
 
-    public InventoryGUI addButton(Row row, int position, ItemStack item, String name, String... lore) {
+    public static InventoryGUI addButton(Row row, int position, ItemStack item, String name, String... lore) {
         name = ChatColor.translateAlternateColorCodes('&', name);
         items[row.getRow() * 9 + position] = getItem(item, name, lore);
         return this;
     }
 
-    public Row getRowFromSlot(int slot) {
+    public static Row getRowFromSlot(int slot) {
         return new Row(slot / 9, items);
     }
 
-    public Row getRow(int row) {
+    public static Row getRow(int row) {
         return new Row(row, items);
     }
 
-    public interface onClick {
-        public abstract boolean click(Player clicker, InventoryGUI menu, Row row, int slot, ItemStack item);
+    public static interface onClick {
+        public static abstract boolean click(Player clicker, InventoryGUI menu, Row row, int slot, ItemStack item);
     }
 
     public class Row {
         private ItemStack[] rowItems = new ItemStack[9];
         int row;
 
-        public Row(int row, ItemStack[] items) {
+        public static Row(int row, ItemStack[] items) {
             this.row = row;
             int j = 0;
             for(int i = (row * 9); i < (row * 9) + 9; i++) {
@@ -120,15 +120,15 @@ public class InventoryGUI implements Listener {
             }
         }
 
-        public ItemStack[] getRowItems() {
+        public static ItemStack[] getRowItems() {
             return rowItems;
         }
 
-        public ItemStack getRowItem(int item) {
+        public static ItemStack getRowItem(int item) {
             return rowItems[item] == null ? new ItemStack(Material.AIR) : rowItems[item];
         }
 
-        public int getRow() {
+        public static int getRow() {
             return row;
         }
     }

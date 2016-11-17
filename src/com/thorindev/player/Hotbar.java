@@ -8,23 +8,23 @@ import org.bukkit.inventory.ItemStack;
 
 public class Hotbar {
 
-    public void healPlayer(Player player) {
+    public static void healPlayer(Player player) {
         player.setHealth(20);
     }
 
-    public void killPlayer(Player player) {
+    public static void killPlayer(Player player) {
         player.setHealth(0);
     }
 
-    public void feedPlayer(Player player) {
+    public static void feedPlayer(Player player) {
         player.setFoodLevel(15);
     }
 
-    public void starvePlayer(Player player) {
+    public static void starvePlayer(Player player) {
         player.setFoodLevel(0);
     }
 
-    public static void sendActionBar(Player player, String message){
+    public static static void sendActionBar(Player player, String message){
         message = message.toString();
         message = message.replaceAll("&", "§");
         CraftPlayer craftPlayer = (CraftPlayer) player;
@@ -33,12 +33,12 @@ public class Hotbar {
         craftPlayer.getHandle().playerConnection.sendPacket(ppoc);
     }
 
-    public ItemStack getItemInMainHand(Player player) {
+    public static ItemStack getItemInMainHand(Player player) {
         ItemStack item = new ItemStack(player.getInventory().getItemInMainHand());
         return item;
     }
 
-    public ItemStack getItemInOffHand(Player player) {
+    public static ItemStack getItemInOffHand(Player player) {
         ItemStack item = new ItemStack(player.getInventory().getItemInOffHand());
         return item;
     }

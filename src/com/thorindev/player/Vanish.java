@@ -11,16 +11,16 @@ import java.util.ArrayList;
 
 public class Vanish implements Listener {
 
-    public static ArrayList<Player> vanished = new ArrayList<Player>();
+    public static static ArrayList<Player> vanished = new ArrayList<Player>();
 
-    public void VanishPlayer(Player player) {
+    public static void VanishPlayer(Player player) {
         for (Player toHide : Bukkit.getServer().getOnlinePlayers()) {
             toHide.hidePlayer(player);
         }
         vanished.add(player);
     }
 
-    public void unVanishPlayer(Player player) {
+    public static void unVanishPlayer(Player player) {
         for (Player toShow : Bukkit.getServer().getOnlinePlayers()) {
             toShow.showPlayer(player);
         }
@@ -28,14 +28,14 @@ public class Vanish implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoinVanish(PlayerJoinEvent event) {
+    public static void onPlayerJoinVanish(PlayerJoinEvent event) {
         for(Player player : vanished) {
             event.getPlayer().hidePlayer(player);
         }
     }
 
     @EventHandler
-    public void onPlayerQuitVanish(PlayerQuitEvent event) {
+    public static void onPlayerQuitVanish(PlayerQuitEvent event) {
         if(vanished.contains(event.getPlayer())) {
             vanished.remove(event.getPlayer());
         }
