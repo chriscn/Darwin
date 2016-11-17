@@ -24,7 +24,7 @@ public class InventoryGUI implements Listener {
     private onClick click;
     List<String> viewing = new ArrayList<>();
 
-    private static ItemStack[] items;
+    private ItemStack[] items;
 
     public InventoryGUI(String name, int size, onClick click) {
         this.name = name;
