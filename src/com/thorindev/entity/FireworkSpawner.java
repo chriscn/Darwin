@@ -1,6 +1,6 @@
 package com.thorindev.entity;
 
-import com.thorindev.util.DarwinArrays;
+import com.thorindev.util.darwinarrays;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
@@ -14,8 +14,10 @@ import java.util.Random;
 
 public class FireworkSpawner {
 
-    static Random random = new Random();
-    
+    Random random = new Random();
+    darwinarrays darwinarrays = new darwinarrays();
+
+
     public void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
         Firework fw = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
@@ -36,10 +38,10 @@ public class FireworkSpawner {
         Firework fw = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
-        FireworkEffect.Type t1 = DarwinArrays.getType();
-        Color c1 = DarwinArrays.getColor();
-        Color c2 = DarwinArrays.getColor();
-        int p1 = DarwinArrays.getPower();
+        FireworkEffect.Type t1 = darwinarrays.getType();
+        Color c1 = darwinarrays.getColor();
+        Color c2 = darwinarrays.getColor();
+        int p1 = darwinarrays.getPower();
 
         FireworkEffect effect = FireworkEffect.builder()
                 .flicker(random.nextBoolean())
@@ -76,10 +78,10 @@ public class FireworkSpawner {
         Firework fw = (Firework) w.spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
-        FireworkEffect.Type t1 = DarwinArrays.getType();
-        Color c1 = DarwinArrays.getColor();
-        Color c2 = DarwinArrays.getColor();
-        int p1 = DarwinArrays.getPower();
+        FireworkEffect.Type t1 = darwinarrays.getType();
+        Color c1 = darwinarrays.getColor();
+        Color c2 = darwinarrays.getColor();
+        int p1 = darwinarrays.getPower();
 
         FireworkEffect effect = FireworkEffect.builder()
                 .flicker(random.nextBoolean())

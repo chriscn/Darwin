@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class DarwinArrays {
 
-    static Random random = new Random();
+    Random random = new Random();
 
     public Color getColor() {
         Color c;
