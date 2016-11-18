@@ -7,13 +7,13 @@ import org.bukkit.inventory.ItemStack;
 
 public class Give {
 
-    public static void giveItem(Player player, Material item, int amount) {
+    public void giveItem(Player player, Material item, int amount) {
         ItemStack toGive = new ItemStack(item, amount);
         Inventory playerInventory = player.getInventory();
         playerInventory.addItem(toGive);
     }
 
-    public static void removeItem(Player player, Material item, int amount) {
+    public void removeItem(Player player, Material item, int amount) {
         ItemStack toRemove = new ItemStack(item, amount);
         Inventory playerInventory = player.getInventory();
         if(playerInventory.contains(toRemove)) {

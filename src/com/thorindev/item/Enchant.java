@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class Enchant {
 
-    public static void enchantItemInHand(Player player, Enchantment enchantment, int level) {
+    public void enchantItemInHand(Player player, Enchantment enchantment, int level) {
         ItemStack item = player.getInventory().getItemInMainHand();
         ItemStack air = new ItemStack(Material.AIR);
         if (item != air) {
@@ -15,7 +15,7 @@ public class Enchant {
         }
     }
 
-    public static ItemStack enchantedItem(Material material, Enchantment enchantment, int level) {
+    public ItemStack enchantedItem(Material material, Enchantment enchantment, int level) {
         ItemStack enchantedItem = new ItemStack(material);
         enchantedItem.addEnchantment(enchantment, level);
         return enchantedItem;

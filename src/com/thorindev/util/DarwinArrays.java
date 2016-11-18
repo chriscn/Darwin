@@ -9,7 +9,7 @@ public class DarwinArrays {
 
     static Random random = new Random();
 
-    public static Color getColor() {
+    public Color getColor() {
         Color c;
         Color[] listOfColors = {
                 Color.AQUA,
@@ -35,7 +35,7 @@ public class DarwinArrays {
         return c;
     }
 
-    public static FireworkEffect.Type getType() {
+    public FireworkEffect.Type getType() {
         FireworkEffect.Type t;
         FireworkEffect.Type[] listOfTypes = {
                 FireworkEffect.Type.BALL,
@@ -49,7 +49,7 @@ public class DarwinArrays {
         return t;
     }
 
-    public static int getPower() {
+    public int getPower() {
         return random.nextInt(128);
     }
 

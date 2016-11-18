@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 public class BlockSpawner {
 
-    public static void spawnBlockAtPlayer(Player player, Material block) {
+    public void spawnBlockAtPlayer(Player player, Material block) {
         Location loc = player.getLocation();
 
     }

@@ -16,7 +16,7 @@ public class FireworkSpawner {
 
     static Random random = new Random();
     
-    public static void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
+    public void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
         Firework fw = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
@@ -32,7 +32,7 @@ public class FireworkSpawner {
         fw.setFireworkMeta(fwm);
     }
 
-    public static void spawnRandomFirework(Player player) {
+    public void spawnRandomFirework(Player player) {
         Firework fw = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
@@ -54,7 +54,7 @@ public class FireworkSpawner {
 
     }
 
-    public static void spawnAbsoluteFirework(Location loc, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
+    public void spawnAbsoluteFirework(Location loc, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
         World w = loc.getWorld();
         Firework fw = (Firework) w.spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
@@ -71,7 +71,7 @@ public class FireworkSpawner {
         fw.setFireworkMeta(fwm);
     }
 
-    public static void spawnAbsoluteRandomFirework(Location loc) {
+    public void spawnAbsoluteRandomFirework(Location loc) {
         World w = loc.getWorld();
         Firework fw = (Firework) w.spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
