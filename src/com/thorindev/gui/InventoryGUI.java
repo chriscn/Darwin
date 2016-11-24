@@ -50,8 +50,9 @@ public class InventoryGUI implements Listener {
     private Inventory getInventory(Player player) {
         Inventory inv = Bukkit.createInventory(player, size, name);
         for(int i = 0; i < items.length; i++) {
-            if(items[i] != null)
+            if(items[i] != null) {
                 inv.setItem(i, items[i]);
+            }
         }
         return inv;
     }
