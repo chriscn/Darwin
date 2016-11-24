@@ -105,7 +105,7 @@ public class InventoryGUI implements Listener {
     }
 
     public interface onClick {
-        public abstract boolean click(Player clicker, InventoryGUI menu, Row row, int slot, ItemStack item);
+        boolean click(Player clicker, InventoryGUI menu, Row row, int slot, ItemStack item);
     }
 
     public class Row {
