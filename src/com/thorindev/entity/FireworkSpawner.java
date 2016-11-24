@@ -1,6 +1,6 @@
 package com.thorindev.entity;
 
-import com.thorindev.util.darwinarrays;
+import com.thorindev.util.DarwinArrays;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
@@ -15,7 +15,7 @@ import java.util.Random;
 public class FireworkSpawner {
 
     Random random = new Random();
-    darwinarrays darwinarrays = new darwinarrays();
+    DarwinArrays darwinArrays = new DarwinArrays();
 
 
     public void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
@@ -38,10 +38,10 @@ public class FireworkSpawner {
         Firework fw = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
-        FireworkEffect.Type t1 = darwinarrays.getType();
-        Color c1 = darwinarrays.getColor();
-        Color c2 = darwinarrays.getColor();
-        int p1 = darwinarrays.getPower();
+        FireworkEffect.Type t1 = darwinArrays.getType();
+        Color c1 = darwinArrays.getColor();
+        Color c2 = darwinArrays.getColor();
+        int p1 = darwinArrays.getPower();
 
         FireworkEffect effect = FireworkEffect.builder()
                 .flicker(random.nextBoolean())
@@ -78,10 +78,10 @@ public class FireworkSpawner {
         Firework fw = (Firework) w.spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
-        FireworkEffect.Type t1 = darwinarrays.getType();
-        Color c1 = darwinarrays.getColor();
-        Color c2 = darwinarrays.getColor();
-        int p1 = darwinarrays.getPower();
+        FireworkEffect.Type t1 = darwinArrays.getType();
+        Color c1 = darwinArrays.getColor();
+        Color c2 = darwinArrays.getColor();
+        int p1 = darwinArrays.getPower();
 
         FireworkEffect effect = FireworkEffect.builder()
                 .flicker(random.nextBoolean())
