@@ -77,8 +77,9 @@ public class InventoryGUI implements Listener {
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
             Row row = getRowFromSlot(event.getSlot());
-            if(!click.click(player, this, row, event.getSlot() - row.getRow() * 9, event.getCurrentItem()))
+            if(!click.click(player, this, row, event.getSlot() - row.getRow() * 9, event.getCurrentItem())) {
                 close(player);
+            }
         }
     }
 
