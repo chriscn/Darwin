@@ -55,16 +55,6 @@ public class InventoryGUI implements Listener {
         return this;
     }
 
-    private Inventory getInventory(Player player) {
-        Inventory inv = Bukkit.createInventory(player, size, name);
-        for(int i = 0; i < items.length; i++) {
-            if(items[i] != null) {
-                inv.setItem(i, items[i]);
-            }
-        }
-        return inv;
-    }
-
     public InventoryGUI close(Player player) {
         if(player.getOpenInventory().getTitle().equals(name)) {
             player.closeInventory();
@@ -79,6 +69,16 @@ public class InventoryGUI implements Listener {
             }
         }
         return this;
+    }
+
+    private Inventory getInventory(Player player) {
+        Inventory inv = Bukkit.createInventory(player, size, name);
+        for(int i = 0; i < items.length; i++) {
+            if(items[i] != null) {
+                inv.setItem(i, items[i]);
+            }
+        }
+        return inv;
     }
 
     public List<Player> getViewers() {
