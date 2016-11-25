@@ -72,6 +72,15 @@ public class InventoryGUI implements Listener {
         return this;
     }
 
+    public InventoryGUI closeAll() {
+        for(Player player : Bukkit.getOnlinePlayers()) {
+            if(player.getOpenInventory().getTitle().equals(name)) {
+                player.closeInventory();
+            }
+        }
+        return this;
+    }
+
     public List<Player> getViewers() {
         List<Player> viewers = new ArrayList<Player>();
         for(String s : viewing) {
