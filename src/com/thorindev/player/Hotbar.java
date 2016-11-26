@@ -9,11 +9,11 @@ import org.bukkit.inventory.ItemStack;
 public class Hotbar {
 
     public void healPlayer(Player player) {
-        player.setHealth(20);
+        player.setHealth(20F);
     }
 
     public void killPlayer(Player player) {
-        player.setHealth(0);
+        player.setHealth(0F);
     }
 
     public void feedPlayer(Player player) {
