@@ -24,11 +24,10 @@ public class InventoryGUI implements Listener {
     private int size;
     private onClick click;
     List<String> viewing = new ArrayList<>();
-
     private ItemStack[] items;
 
     public InventoryGUI(String name, int size, onClick click) {
-        this.name = name;
+        this.name = ChatColor.translateAlternateColorCodes('&', name);
         this.size = size * 9;
         items = new ItemStack[this.size];
         this.click = click;

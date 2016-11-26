@@ -29,7 +29,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
         Player player = (Player) sender;
         switch(cmd.getName().toLowerCase()) {
             case "gui":
-                gui = new InventoryGUI("GUI", 3, (clicker, menu, row, slot, item) -> {
+                gui = new InventoryGUI("&cGUI", 3, (clicker, menu, row, slot, item) -> {
                     if(item.getType().equals(Material.DIAMOND)) {
                         gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.COAL), "&aIt has been changed to coal");
                     } else if(item.getType().equals(Material.COAL)) {
@@ -47,6 +47,5 @@ public class DarwinMain extends JavaPlugin implements Listener {
         }
         return true;
     }
-
 
 }
