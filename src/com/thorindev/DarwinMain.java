@@ -1,16 +1,12 @@
 package com.thorindev;
 
 import com.thorindev.gui.InventoryGUI;
-import com.thorindev.player.Hotbar;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -38,6 +34,8 @@ public class DarwinMain extends JavaPlugin implements Listener {
                     public boolean click(Player clicker, InventoryGUI menu, InventoryGUI.Row row, int slot, ItemStack item) {
                         if(item.getType().equals(Material.DIAMOND)) {
                             gui.addButton(gui.getRow(1), 4, new ItemStack(Material.COAL), "&aIt has been changed to coal");
+                        } else if(item.getType().equals(Material.COAL)) {
+                            gui.addButton(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
                         }
                         gui.refresh(player);
                         return true;
@@ -53,13 +51,4 @@ public class DarwinMain extends JavaPlugin implements Listener {
         return true;
     }
 
-    @EventHandler
-    public void onPlayerInteractionEvent(PlayerInteractEvent event) {
-        Player player = event.getPlayer();
-        if(new Hotbar().getItemInMainHand(player).getType() == Material.BOOK) {
-            if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                gui.open(player);
-            }
-        }
-    }
 }
