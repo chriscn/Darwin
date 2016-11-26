@@ -7,15 +7,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/Spigot Jar/spigot-latest.jar!/" />
           <root url="jar://$MODULE_DIR$/../../../Documentation/Java/Bukkit/spigot-110.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/Documents/Spigot Jar/spigot-latest.jar!/" />
           <root url="jar://$MODULE_DIR$/../../../Documentation/Java/Bukkit/spigot-110.jar!/" />
         </SOURCES>
       </library>
