@@ -31,14 +31,14 @@ public class DarwinMain extends JavaPlugin implements Listener {
             case "gui":
                 gui = new InventoryGUI("GUI", 3, (clicker, menu, row, slot, item) -> {
                     if(item.getType().equals(Material.DIAMOND)) {
-                        gui.addButton(gui.getRow(1), 4, new ItemStack(Material.COAL), "&aIt has been changed to coal");
+                        gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.COAL), "&aIt has been changed to coal");
                     } else if(item.getType().equals(Material.COAL)) {
-                        gui.addButton(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
+                        gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
                     }
                     gui.refresh(player);
                     return true;
                 });
-                gui.addButton(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
+                gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
                 gui.open(player);
                 break;
             default:

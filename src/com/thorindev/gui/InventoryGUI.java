@@ -125,7 +125,7 @@ public class InventoryGUI implements Listener {
         }
     }
 
-    public InventoryGUI addButton(Row row, int position, ItemStack item, String name, String... lore) {
+    public InventoryGUI setSlot(Row row, int position, ItemStack item, String name, String... lore) {
         name = ChatColor.translateAlternateColorCodes('&', name);
         for(int i = 0; i < lore.length; i++) {
             lore[i] = ChatColor.translateAlternateColorCodes('&', lore[i]);
