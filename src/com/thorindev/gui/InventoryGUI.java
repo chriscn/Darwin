@@ -27,7 +27,7 @@ public class InventoryGUI implements Listener {
     private ItemStack[] items;
 
     public InventoryGUI(String name, int size, onClick click) {
-        this.name = ChatColor.translateAlternateColorCodes('&', name);
+        this.name = format(name);
         this.size = size * 9;
         items = new ItemStack[this.size];
         this.click = click;
@@ -96,14 +96,6 @@ public class InventoryGUI implements Listener {
         return this;
     }
 
-    public InventoryGUI updateName(String name) {
-        this.name = ChatColor.translateAlternateColorCodes('&', name);
-        for(String s : viewing) {
-            getInventory(Bukkit.getPlayer(s));
-        }
-        return this;
-    }
-
     private Inventory getInventory(Player player) {
         Inventory inv = Bukkit.createInventory(player, size, name);
         for(int i = 0; i < items.length; i++) {
@@ -115,7 +107,7 @@ public class InventoryGUI implements Listener {
     }
 
     public List<Player> getViewers() {
-        List<Player> viewers = new ArrayList<Player>();
+        List<Player> viewers = new ArrayList<>();
         for(String s : viewing) {
             viewers.add(Bukkit.getPlayer(s));
         }
@@ -147,10 +139,21 @@ public class InventoryGUI implements Listener {
     }
 
     public InventoryGUI setSlot(Row row, int position, ItemStack item, String name, String... lore) {
-        name = ChatColor.translateAlternateColorCodes('&', name);
-        for(int i = 0; i < lore.length; i++) {lore[i] = ChatColor.translateAlternateColorCodes('&', lore[i]);}
+        name = format(name);
+        lore = format(lore);
         items[row.getRow() * 9 + position] = getItem(item, name, lore);
         return this;
+    }
+
+    private String format(String format) {
+        return ChatColor.translateAlternateColorCodes('&', format);
+    }
+
+    private String[] format(String[] format) {
+        for(int i = 0; i < format.length; i++) {
+            format[i] = ChatColor.translateAlternateColorCodes('&', format[i]);
+        }
+        return format;
     }
 
     public Row getRowFromSlot(int slot) {
