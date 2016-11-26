@@ -29,7 +29,7 @@ public class InventoryGUI implements Listener {
 
     public InventoryGUI(String name, int size, onClick click) {
         this.name = name;
-        this.size = size*9;
+        this.size = size * 9;
         items = new ItemStack[this.size];
         this.click = click;
         Bukkit.getPluginManager().registerEvents(this, Bukkit.getPluginManager().getPlugins()[0]);
