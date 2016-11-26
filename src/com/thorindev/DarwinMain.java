@@ -41,7 +41,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
                         return true;
                     }
                 });
-                gui.addButton(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&bExample Lore");
+                gui.addButton(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
                 gui.open(player);
                 break;
             default:
