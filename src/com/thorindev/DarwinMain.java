@@ -29,17 +29,14 @@ public class DarwinMain extends JavaPlugin implements Listener {
         Player player = (Player) sender;
         switch(cmd.getName().toLowerCase()) {
             case "gui":
-                gui = new InventoryGUI("GUI", 3, new InventoryGUI.onClick() {
-                    @Override
-                    public boolean click(Player clicker, InventoryGUI menu, InventoryGUI.Row row, int slot, ItemStack item) {
-                        if(item.getType().equals(Material.DIAMOND)) {
-                            gui.addButton(gui.getRow(1), 4, new ItemStack(Material.COAL), "&aIt has been changed to coal");
-                        } else if(item.getType().equals(Material.COAL)) {
-                            gui.addButton(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
-                        }
-                        gui.refresh(player);
-                        return true;
+                gui = new InventoryGUI("GUI", 3, (clicker, menu, row, slot, item) -> {
+                    if(item.getType().equals(Material.DIAMOND)) {
+                        gui.addButton(gui.getRow(1), 4, new ItemStack(Material.COAL), "&aIt has been changed to coal");
+                    } else if(item.getType().equals(Material.COAL)) {
+                        gui.addButton(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
                     }
+                    gui.refresh(player);
+                    return true;
                 });
                 gui.addButton(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
                 gui.open(player);
@@ -50,5 +47,6 @@ public class DarwinMain extends JavaPlugin implements Listener {
         }
         return true;
     }
+
 
 }
