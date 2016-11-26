@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -103,12 +104,16 @@ public class InventoryGUI implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if(viewing.contains(event.getWhoClicked().getName())) {
-            event.setCancelled(true);
-            Player player = (Player) event.getWhoClicked();
-            Row row = getRowFromSlot(event.getSlot());
-            if(!click.click(player, this, row, event.getSlot() - row.getRow() * 9, event.getCurrentItem())) {
-                close(player);
+        if(event.getSlotType().equals(InventoryType.SlotType.OUTSIDE)) {
+            return;
+        } else {
+            if(viewing.contains(event.getWhoClicked().getName())) {
+                event.setCancelled(true);
+                Player player = (Player) event.getWhoClicked();
+                Row row = getRowFromSlot(event.getSlot());
+                if(!click.click(player, this, row, event.getSlot() - row.getRow() * 9, event.getCurrentItem())) {
+                    close(player);
+                }
             }
         }
     }
