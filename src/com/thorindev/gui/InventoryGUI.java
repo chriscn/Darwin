@@ -73,6 +73,16 @@ public class InventoryGUI implements Listener {
         return this;
     }
 
+    public InventoryGUI refresh(Player player) {
+        for(int i = 0; i < items.length; i++) {
+            player.getOpenInventory().setItem(i, null);
+            if(items[i] != null) {
+                player.getOpenInventory().setItem(i, items[i]);
+            }
+        }
+        return this;
+    }
+
     private Inventory getInventory(Player player) {
         Inventory inv = Bukkit.createInventory(player, size, name);
         for(int i = 0; i < items.length; i++) {
