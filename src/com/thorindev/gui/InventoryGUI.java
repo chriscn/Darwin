@@ -86,7 +86,7 @@ public class InventoryGUI implements Listener {
     public InventoryGUI refreshAll() {
         for(String s : viewing) {
             Player player = Bukkit.getPlayer(s);
-            for(int i = 0; i< items.length; i++) {
+            for(int i = 0; i < items.length; i++) {
                 player.getOpenInventory().setItem(i, null);
                 if(items[i] != null) {
                     player.getOpenInventory().setItem(i, items[i]);
