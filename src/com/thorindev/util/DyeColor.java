@@ -1,6 +1,6 @@
 package com.thorindev.util;
 
-public enum CustomDyeColor {
+public enum DyeColor {
 
     BLACK(0),
     RED(1),
@@ -20,7 +20,7 @@ public enum CustomDyeColor {
     WHITE(15);
 
     private byte data;
-    CustomDyeColor(int i){
+    DyeColor(int i){
         this.data = (byte) i;
     }
 

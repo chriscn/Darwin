@@ -1,6 +1,6 @@
 package com.thorindev.util;
 
-public enum CustomGlassColor {
+public enum GlassColor {
 
     WHITE(0),
     ORANGE(1),
@@ -20,7 +20,7 @@ public enum CustomGlassColor {
     BLACK(15);
 
     private byte data;
-    CustomGlassColor(int i){
+    GlassColor(int i){
         this.data = (byte) i;
     }
 

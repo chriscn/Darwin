@@ -1,7 +1,8 @@
 package com.thorindev;
 
 import com.thorindev.gui.InventoryGUI;
-import com.thorindev.util.CustomDyeColor;
+import com.thorindev.util.DyeColor;
+import com.thorindev.util.GlassColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -43,9 +44,9 @@ public class DarwinMain extends JavaPlugin implements Listener {
             return true;
         } else if(cmd.getName().equalsIgnoreCase("toggle")) {
 
-            CustomDyeColor lime = CustomDyeColor.LIME;
-            CustomDyeColor gray = CustomDyeColor.GRAY;
-            CustomDyeColor red = CustomDyeColor.RED;
+            DyeColor lime = DyeColor.LIME;
+            DyeColor gray = DyeColor.GRAY;
+            GlassColor red = GlassColor.RED;
 
             ItemStack grayDye = new ItemStack(Material.INK_SACK, 1, gray.getData());
             ItemStack limeDye = new ItemStack(Material.INK_SACK, 1, lime.getData());
