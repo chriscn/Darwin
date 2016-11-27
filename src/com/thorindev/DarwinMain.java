@@ -46,7 +46,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
 
             DyeColor lime = DyeColor.LIME;
             DyeColor gray = DyeColor.GRAY;
-            GlassColor red = GlassColor.RED;
+            GlassColor white = GlassColor.WHITE;
 
             ItemStack grayDye = new ItemStack(Material.INK_SACK, 1, gray.getData());
             ItemStack limeDye = new ItemStack(Material.INK_SACK, 1, lime.getData());
@@ -63,7 +63,7 @@ public class DarwinMain extends JavaPlugin implements Listener {
                 toggleGUI.refresh(player);
                 return true;
             });
-            toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.STAINED_GLASS_PANE, 1, red.getData()), "&aThe coolness of this server");
+            toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.STAINED_GLASS_PANE, 1, white.getData()), "&aThe coolness of this server");
             toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
             toggleGUI.open(player);
             return true;
