@@ -1,6 +1,7 @@
 package com.thorindev;
 
 import com.thorindev.gui.InventoryGUI;
+import com.thorindev.item.CustomColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -41,8 +42,10 @@ public class DarwinMain extends JavaPlugin implements Listener {
             gui.open(player);
             return true;
         } else if(cmd.getName().equalsIgnoreCase("toggle")) {
-            ItemStack grayDye = new ItemStack(Material.INK_SACK, 1, (short) 8);
-            ItemStack limeDye = new ItemStack(Material.INK_SACK, 1, (short) 10);
+            CustomColor lime = CustomColor.LIME;
+            CustomColor gray = CustomColor.GRAY;
+            ItemStack grayDye = new ItemStack(Material.INK_SACK, 1, gray.getData());
+            ItemStack limeDye = new ItemStack(Material.INK_SACK, 1, lime.getData());
             testGUI = new InventoryGUI("&aTest GUI", 3, (clicker, menu, row, slot, item) -> {
                 if(item.getType().equals(Material.INK_SACK)) {
                     if(item.equals(grayDye)) {
