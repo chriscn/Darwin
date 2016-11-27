@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class DarwinMain extends JavaPlugin implements Listener {
 
     InventoryGUI gui;
-    InventoryGUI testGUI;
+    InventoryGUI toggleGUI;
 
     @Override
     public void onEnable() {
@@ -46,19 +46,19 @@ public class DarwinMain extends JavaPlugin implements Listener {
             CustomColor gray = CustomColor.GRAY;
             ItemStack grayDye = new ItemStack(Material.INK_SACK, 1, gray.getData());
             ItemStack limeDye = new ItemStack(Material.INK_SACK, 1, lime.getData());
-            testGUI = new InventoryGUI("&aTest GUI", 3, (clicker, menu, row, slot, item) -> {
+            toggleGUI = new InventoryGUI("&aTest GUI", 3, (clicker, menu, row, slot, item) -> {
                 if(item.getType().equals(Material.INK_SACK)) {
                     if(item.equals(grayDye)) {
-                        testGUI.setSlot(testGUI.getRow(1), 4, limeDye, "&aEnabled", "&7Click to disable");
+                        toggleGUI.setSlot(toggleGUI.getRow(1), 4, limeDye, "&aEnabled", "&7Click to disable");
                     } else if(item.equals(limeDye)) {
-                        testGUI.setSlot(testGUI.getRow(1), 4, grayDye, "&cDisabled", "&7Click to enable");
+                        toggleGUI.setSlot(toggleGUI.getRow(1), 4, grayDye, "&cDisabled", "&7Click to enable");
                     }
                 }
-                testGUI.refresh(player);
+                toggleGUI.refresh(player);
                 return true;
             });
-            testGUI.setSlot(testGUI.getRow(1), 4, grayDye, "&cDisabled", "&7Click to enable");
-            testGUI.open(player);
+            toggleGUI.setSlot(toggleGUI.getRow(1), 4, grayDye, "&cDisabled", "&7Click to enable");
+            toggleGUI.open(player);
             return true;
         }
         return true;
