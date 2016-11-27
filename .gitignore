@@ -15,3 +15,5 @@ hs_err_pid*
 *.MF
 
 .idea/workspace.xml
+
+.idea/artifacts/Darwin_jar.xml
