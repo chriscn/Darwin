@@ -10,11 +10,22 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Documentation/Java/Bukkit/spigot-110.jar!/" />
+          <root url="jar://D:/Documentation/Java/Bukkit/spigot-110.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../Documentation/Java/Bukkit/spigot-110.jar!/" />
+          <root url="jar://D:/Documentation/Java/Bukkit/spigot-110.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Documents/Spigot Jar/spigot-latest.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Documents/Spigot Jar/spigot-latest.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
