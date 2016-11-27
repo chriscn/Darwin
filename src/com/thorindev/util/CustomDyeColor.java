@@ -2,11 +2,11 @@ package com.thorindev.util;
 
 public enum CustomDyeColor {
 
-    BLACK(0), //ink sack
+    BLACK(0),
     RED(1),
     GREEN(2),
     BROWN(3),
-    BLUE(4), //lapis lazuli
+    BLUE(4),
     PURPLE(5),
     CYAN(6),
     LIGHT_GRAY(7),
@@ -17,7 +17,7 @@ public enum CustomDyeColor {
     LIGHT_BLUE(12),
     MAGENTA(13),
     ORANGE(14),
-    WHITE(15); //bonemeal
+    WHITE(15);
 
     private byte data;
     CustomDyeColor(int i){
