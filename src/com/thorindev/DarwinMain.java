@@ -1,7 +1,7 @@
 package com.thorindev;
 
 import com.thorindev.gui.InventoryGUI;
-import com.thorindev.util.CustomColor;
+import com.thorindev.util.CustomDyeColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -42,22 +42,28 @@ public class DarwinMain extends JavaPlugin implements Listener {
             gui.open(player);
             return true;
         } else if(cmd.getName().equalsIgnoreCase("toggle")) {
-            CustomColor lime = CustomColor.LIME;
-            CustomColor gray = CustomColor.GRAY;
+
+            CustomDyeColor lime = CustomDyeColor.LIME;
+            CustomDyeColor gray = CustomDyeColor.GRAY;
+            CustomDyeColor red = CustomDyeColor.RED;
+
             ItemStack grayDye = new ItemStack(Material.INK_SACK, 1, gray.getData());
             ItemStack limeDye = new ItemStack(Material.INK_SACK, 1, lime.getData());
-            toggleGUI = new InventoryGUI("&aTest GUI", 3, (clicker, menu, row, slot, item) -> {
+
+            toggleGUI = new InventoryGUI("&aTest GUI", 4, (clicker, menu, row, slot, item) -> {
                 if(item.getType().equals(Material.INK_SACK)) {
                     if(item.equals(grayDye)) {
-                        toggleGUI.setSlot(toggleGUI.getRow(1), 4, limeDye, "&aEnabled", "&7Click to disable");
+                        toggleGUI.setSlot(toggleGUI.getRow(2), 4, limeDye, "&aEnabled", "&7Click to disable");
                     } else if(item.equals(limeDye)) {
-                        toggleGUI.setSlot(toggleGUI.getRow(1), 4, grayDye, "&cDisabled", "&7Click to enable");
+                        toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
                     }
                 }
+
                 toggleGUI.refresh(player);
                 return true;
             });
-            toggleGUI.setSlot(toggleGUI.getRow(1), 4, grayDye, "&cDisabled", "&7Click to enable");
+            toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.STAINED_GLASS_PANE, 1, red.getData()), "&aThe coolness of this server");
+            toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
             toggleGUI.open(player);
             return true;
         }
