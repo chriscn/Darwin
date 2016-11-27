@@ -1,4 +1,4 @@
-package com.thorindev.item;
+package com.thorindev.util;
 
 public enum CustomColor {
 
