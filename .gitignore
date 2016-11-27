@@ -17,3 +17,5 @@ hs_err_pid*
 .idea/workspace.xml
 
 .idea/artifacts/Darwin_jar.xml
+
+.idea/uiDesigner.xml
