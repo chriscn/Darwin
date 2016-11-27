@@ -4,9 +4,9 @@ author: ThorinDev
 authors: [Thorin, ThorinDev]
 version: 1.0.0
 commands:
-  test:
+  toggle:
     usage:
-      /test
+      /toggle
   gui:
     usage:
       /gui

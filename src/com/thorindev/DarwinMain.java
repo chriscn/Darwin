@@ -1,7 +1,6 @@
 package com.thorindev;
 
 import com.thorindev.gui.InventoryGUI;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class DarwinMain extends JavaPlugin implements Listener {
 
     InventoryGUI gui;
+    InventoryGUI testGUI;
 
     @Override
     public void onEnable() {
@@ -27,23 +27,36 @@ public class DarwinMain extends JavaPlugin implements Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player player = (Player) sender;
-        switch(cmd.getName().toLowerCase()) {
-            case "gui":
-                gui = new InventoryGUI("&cGUI", 3, (clicker, menu, row, slot, item) -> {
-                    if(item.getType().equals(Material.DIAMOND)) {
-                        gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.COAL), "&aIt has been changed to coal");
-                    } else if(item.getType().equals(Material.COAL)) {
-                        gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
+        if(cmd.getName().equalsIgnoreCase("gui")) {
+            gui = new InventoryGUI("&cGUI", 3, (clicker, menu, row, slot, item) -> {
+                if(item.getType().equals(Material.DIAMOND)) {
+                    gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.COAL),  "&aIt has been changed to coal",  "&cExample Lore #1",  "&bExample Lore #2");
+                } else if(item.getType().equals(Material.COAL)) {
+                    gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
+                }
+                gui.refresh(player);
+                return true;
+            });
+            gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
+            gui.open(player);
+            return true;
+        } else if(cmd.getName().equalsIgnoreCase("toggle")) {
+            ItemStack grayDye = new ItemStack(Material.INK_SACK, 1, (short) 8);
+            ItemStack limeDye = new ItemStack(Material.INK_SACK, 1, (short) 10);
+            testGUI = new InventoryGUI("&aTest GUI", 3, (clicker, menu, row, slot, item) -> {
+                if(item.getType().equals(Material.INK_SACK)) {
+                    if(item.equals(grayDye)) {
+                        testGUI.setSlot(testGUI.getRow(1), 4, limeDye, "&aEnabled", "&7Click to disable");
+                    } else if(item.equals(limeDye)) {
+                        testGUI.setSlot(testGUI.getRow(1), 4, grayDye, "&cDisabled", "&7Click to enable");
                     }
-                    gui.refresh(player);
-                    return true;
-                });
-                gui.setSlot(gui.getRow(1), 4, new ItemStack(Material.DIAMOND), "&aThis is a custom item name", "&cExample Lore");
-                gui.open(player);
-                break;
-            default:
-                player.sendMessage(ChatColor.GREEN + "I don't have code for that command");
-                break;
+                }
+                testGUI.refresh(player);
+                return true;
+            });
+            testGUI.setSlot(testGUI.getRow(1), 4, grayDye, "&cDisabled", "&7Click to enable");
+            testGUI.open(player);
+            return true;
         }
         return true;
     }
