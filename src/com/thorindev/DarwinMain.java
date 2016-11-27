@@ -1,7 +1,7 @@
 package com.thorindev;
 
 import com.thorindev.gui.InventoryGUI;
-import com.thorindev.item.CustomColor;
+import com.thorindev.util.CustomColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
