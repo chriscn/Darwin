@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Vanish implements Listener {
 
-    public ArrayList<Player> vanished = new ArrayList<Player>();
+    private ArrayList<Player> vanished = new ArrayList<Player>();
 
     public void VanishPlayer(Player player) {
         for (Player toHide : Bukkit.getServer().getOnlinePlayers()) {
