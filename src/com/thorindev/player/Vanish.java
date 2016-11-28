@@ -41,4 +41,12 @@ public class Vanish implements Listener {
         }
     }
 
+    public ArrayList getVanish() {
+        ArrayList<Player> vanish = new ArrayList<>();
+        for(Player player : vanished) {
+            vanish.add(player);
+        }
+        return vanish;
+    }
+
 }
