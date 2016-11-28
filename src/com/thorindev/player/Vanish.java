@@ -13,6 +13,10 @@ public class Vanish implements Listener {
 
     private ArrayList<Player> vanished = new ArrayList<Player>();
 
+    public Vanish() {
+        Bukkit.getPluginManager().registerEvents(this, Bukkit.getPluginManager().getPlugins()[0]);
+    }
+
     public void VanishPlayer(Player player) {
         for (Player toHide : Bukkit.getServer().getOnlinePlayers()) {
             toHide.hidePlayer(player);
