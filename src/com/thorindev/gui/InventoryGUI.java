@@ -41,6 +41,30 @@ public class InventoryGUI implements Listener {
         }
     }
 
+
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        if(event.getSlotType().equals(InventoryType.SlotType.OUTSIDE)) {
+            return;
+        } else {
+            if(viewing.contains(event.getWhoClicked().getName())) {
+                event.setCancelled(true);
+                Player player = (Player) event.getWhoClicked();
+                Row row = getRowFromSlot(event.getSlot());
+                if(!click.click(player, this, row, event.getSlot() - row.getRow() * 9, event.getCurrentItem())) {
+                    close(player);
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onInventoryClose(InventoryCloseEvent event) {
+        if(viewing.contains(event.getPlayer().getName())) {
+            viewing.remove(event.getPlayer().getName());
+        }
+    }
+
     public InventoryGUI open(Player player) {
         player.openInventory(getInventory(player));
         viewing.add(player.getName());
@@ -112,30 +136,6 @@ public class InventoryGUI implements Listener {
             viewers.add(Bukkit.getPlayer(s));
         }
         return viewers;
-    }
-
-
-    @EventHandler
-    public void onInventoryClick(InventoryClickEvent event) {
-        if(event.getSlotType().equals(InventoryType.SlotType.OUTSIDE)) {
-            return;
-        } else {
-            if(viewing.contains(event.getWhoClicked().getName())) {
-                event.setCancelled(true);
-                Player player = (Player) event.getWhoClicked();
-                Row row = getRowFromSlot(event.getSlot());
-                if(!click.click(player, this, row, event.getSlot() - row.getRow() * 9, event.getCurrentItem())) {
-                    close(player);
-                }
-            }
-        }
-    }
-
-    @EventHandler
-    public void onInventoryClose(InventoryCloseEvent event) {
-        if(viewing.contains(event.getPlayer().getName())) {
-            viewing.remove(event.getPlayer().getName());
-        }
     }
 
     public InventoryGUI setSlot(Row row, int position, ItemStack item, String name, String... lore) {
