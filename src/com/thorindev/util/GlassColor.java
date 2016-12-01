@@ -24,7 +24,7 @@ public enum GlassColor {
         this.data = (byte) i;
     }
 
-    public byte getData(){
+    public byte getColor(){
         return this.data;
     }
 
