@@ -145,6 +145,10 @@ public class InventoryGUI implements Listener {
         return this;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private String format(String format) {
         return ChatColor.translateAlternateColorCodes('&', format);
     }
