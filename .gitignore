@@ -1,25 +1,10 @@
+# IntelliJ and Maven packages
+.idea/
+*.iml
 *.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
-*.war
-*.ear
+target/
+classes/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
+# macOS
 .DS_Store
-*.MF
-
-.idea/workspace.xml
-
-.idea/artifacts/Darwin_jar.xml
-
-.idea/uiDesigner.xml
-.idea/dictionaries/Chris.xml
-.idea/inspectionProfiles/Project_Default.xml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/workspace.xml___jb_tmp___
