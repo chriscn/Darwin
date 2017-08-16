@@ -1,6 +1,6 @@
 package io.github.chriscn.util;
 
-public enum  TerracottaColor {
+public enum TerracottaColor {
 
     WHITE(0),
     ORANGE(1),
