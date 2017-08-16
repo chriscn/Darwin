@@ -2,6 +2,7 @@ package io.github.chriscn.entity;
 
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
+import org.bukkit.entity.Player;
 
 import java.util.Random;
 
@@ -9,7 +10,19 @@ public class Firework {
 
     Random random = new Random();
 
-    
+    /**
+     * @name spawnFirework - spawns a firework at player with given types and colors.
+     * @param player The player you would like to spawn it at
+     * @param flicker If you want the firework to flicker
+     * @param c1 The first firework colour
+     * @param c2 The second firework colour
+     * @param t1 The firework type
+     * @param trail If you want the firework to have a trail
+     * @param p1 The amount of power
+     */
+    public void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
+
+    }
 
     public Color getFWColor() {
         Color c;
