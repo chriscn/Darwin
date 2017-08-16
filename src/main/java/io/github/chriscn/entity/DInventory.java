@@ -3,7 +3,7 @@ package io.github.chriscn.entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class Inventory {
+public class DInventory {
 
     public ItemStack getItemInMainHand(Player player) {
         return new ItemStack(player.getInventory().getItemInMainHand());
