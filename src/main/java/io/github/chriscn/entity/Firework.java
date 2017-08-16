@@ -24,6 +24,14 @@ public class Firework {
 
     }
 
+    /**
+     * @name spawnRandomFirework - spawns a completely random firework at the player given.
+     * @param player
+     */
+    public void spawnRandomFirework(Player player) {
+        spawnFirework(player, randomBoolean(), getFWColor(), getFWColor(), getFWType(), randomBoolean(), getFWPower());
+    }
+
     public Color getFWColor() {
         Color c;
         Color[] listOfColors = {
@@ -66,6 +74,10 @@ public class Firework {
 
     public int getFWPower() {
         return random.nextInt(128);
+    }
+
+    public boolean randomBoolean() {
+        return random.nextBoolean();
     }
 
 }
