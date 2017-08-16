@@ -102,7 +102,7 @@ public class DFirework {
                 FireworkEffect.Type.CREEPER,
                 FireworkEffect.Type.STAR,
         };
-        return listOfTypes[random.nextInt(listOfTypes.length)]
+        return listOfTypes[random.nextInt(listOfTypes.length)];
     }
 
     public int getFWPower() {
