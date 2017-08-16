@@ -16,13 +16,13 @@ public class DFirework {
 
     /**
      * @name spawnFirework - spawns a firework at the location with given types and colors.
-     * @param loc
-     * @param flicker
-     * @param c1
-     * @param c2
-     * @param t1
-     * @param trail
-     * @param p1
+     * @param loc the location to spawn the firework at
+     * @param flicker If you want the firework to flicker
+     * @param c1 The first firework colour
+     * @param c2 The second firework colour
+     * @param t1 The firework type
+     * @param trail If you want the firework to have a trail
+     * @param p1 The amount of power
      */
     public void spawnFirework(Location loc, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
         Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
@@ -65,7 +65,7 @@ public class DFirework {
 
     /**
      * @name spawnRandomFirework - spawns a completely random firework at the location given.
-     * @param loc
+     * @param loc the location to spawn the firework at
      */
     public void spawnRandomFirework(Location loc) {
         spawnFirework(loc, randomBoolean(), getFWColor(), getFWColor(), getFWType(), randomBoolean(), getFWPower());
