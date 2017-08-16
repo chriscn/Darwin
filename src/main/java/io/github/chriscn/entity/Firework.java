@@ -37,12 +37,12 @@ public class Firework {
      * @param p1 The amount of power
      */
     public void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
-        spawnAbsoluteFirework(player.getLocation(), flicker, c1, c2, t1, trail, p1);
+        spawnFirework(player.getLocation(), flicker, c1, c2, t1, trail, p1);
     }
 
     /**
      * @name spawnRandomFirework - spawns a completely random firework at the player given.
-     * @param player
+     * @param player The player you would like to spawn it at
      */
     public void spawnRandomFirework(Player player) {
         spawnFirework(player, randomBoolean(), getFWColor(), getFWColor(), getFWType(), randomBoolean(), getFWPower());
