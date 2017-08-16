@@ -48,6 +48,13 @@ public class Firework {
         spawnFirework(player, randomBoolean(), getFWColor(), getFWColor(), getFWType(), randomBoolean(), getFWPower());
     }
 
+    /**
+     * @name spawnRandomFirework - spawns a completely random firework at the location given.
+     * @param loc
+     */
+    public void spawnRandomFirework(Location loc) {
+        spawnFirework(loc, randomBoolean(), getFWColor(), getFWColor(), getFWType(), randomBoolean(), getFWPower());
+    }
 
     public Color getFWColor() {
         Color c;
