@@ -2,6 +2,7 @@ package io.github.chriscn.entity;
 
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.Random;
@@ -9,6 +10,21 @@ import java.util.Random;
 public class Firework {
 
     Random random = new Random();
+
+    /**
+     * @name spawnFirework - spawns a firework at the location with given types and colors.
+     * @param loc
+     * @param flicker
+     * @param c1
+     * @param c2
+     * @param t1
+     * @param trail
+     * @param p1
+     */
+    public void spawnFirework(Location loc, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
+
+    }
+
 
     /**
      * @name spawnFirework - spawns a firework at player with given types and colors.
@@ -21,7 +37,7 @@ public class Firework {
      * @param p1 The amount of power
      */
     public void spawnFirework(Player player, boolean flicker, Color c1, Color c2, FireworkEffect.Type t1, boolean trail, int p1) {
-
+        spawnAbsoluteFirework(player.getLocation(), flicker, c1, c2, t1, trail, p1);
     }
 
     /**
@@ -31,6 +47,7 @@ public class Firework {
     public void spawnRandomFirework(Player player) {
         spawnFirework(player, randomBoolean(), getFWColor(), getFWColor(), getFWType(), randomBoolean(), getFWPower());
     }
+
 
     public Color getFWColor() {
         Color c;
