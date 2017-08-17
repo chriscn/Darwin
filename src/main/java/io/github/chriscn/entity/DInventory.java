@@ -21,4 +21,12 @@ public class DInventory {
         player.setHealth(0F);
     }
 
+    public void feedPlayer(Player player) {
+        player.setFoodLevel(15);
+    }
+
+    public void starvePlayer(Player player) {
+        player.setFoodLevel(0);
+    }
+
 }
