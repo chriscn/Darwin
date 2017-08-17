@@ -32,13 +32,10 @@ public class DInventory {
         player.setFoodLevel(0);
     }
 
-    public void sendActionBar(Player player, String message){
-        message = message.toString();
-        message = message.replaceAll("&", "§");
+    public void sendActionBar(Player player, String message) {
         CraftPlayer craftPlayer = (CraftPlayer) player;
-        IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message + "\"}");
-        PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
-        craftPlayer.getHandle().playerConnection.sendPacket(ppoc);
+        IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message.replaceAll("&", "§").toString() + "\"}");
+        craftPlayer.getHandle().playerConnection.sendPacket(new PacketPlayOutChat(cbc, (byte) 2));
     }
 
 }
