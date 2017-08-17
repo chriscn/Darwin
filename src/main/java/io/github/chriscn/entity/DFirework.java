@@ -91,18 +91,12 @@ public class DFirework {
                 Color.WHITE,
                 Color.YELLOW,
         };
+
         return listOfColors[random.nextInt(listOfColors.length)];
     }
 
     public FireworkEffect.Type getFWType() {
-        FireworkEffect.Type[] listOfTypes = {
-                FireworkEffect.Type.BALL,
-                FireworkEffect.Type.BALL_LARGE,
-                FireworkEffect.Type.BURST,
-                FireworkEffect.Type.CREEPER,
-                FireworkEffect.Type.STAR,
-        };
-        return listOfTypes[random.nextInt(listOfTypes.length)];
+        return FireworkEffect.Type.values()[random.nextInt(FireworkEffect.Type.values().length)];
     }
 
     public int getFWPower() {
