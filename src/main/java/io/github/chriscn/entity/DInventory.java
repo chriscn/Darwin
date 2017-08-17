@@ -13,4 +13,12 @@ public class DInventory {
         return new ItemStack(player.getInventory().getItemInOffHand());
     }
 
+    public void healPlayer(Player player) {
+        player.setHealth(20F);
+    }
+
+    public void killPlayer(Player player) {
+        player.setHealth(0F);
+    }
+
 }
