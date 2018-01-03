@@ -1,10 +1,12 @@
 # IntelliJ and Maven packages
-.idea/
-*.iml
 *.class
 *.jar
 target/
 classes/
+.idea/
 
 # macOS
 .DS_Store
+
+# Node.js packages
+node_modules/
